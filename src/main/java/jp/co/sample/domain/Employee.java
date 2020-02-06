@@ -58,7 +58,7 @@ public class Employee {
 	/**
 	 * 扶養家族数
 	 */
-	private Integer depondentsCount;
+	private Integer dependentsCount;
 	
 	public  Employee() {
 		
@@ -66,7 +66,7 @@ public class Employee {
 
 	public Employee(Integer id, String name, String image, String gender, Date hireDate, String mailAddress,
 			String zipCode, String address, String telephone, Integer salary, String characteristics,
-			Integer depondentsCount) {
+			Integer dependentsCount) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -79,7 +79,7 @@ public class Employee {
 		this.telephone = telephone;
 		this.salary = salary;
 		this.characteristics = characteristics;
-		this.depondentsCount = depondentsCount;
+		this.dependentsCount = dependentsCount;
 	}
 
 	public Integer getId() {
@@ -170,12 +170,12 @@ public class Employee {
 		this.characteristics = characteristics;
 	}
 
-	public Integer getDepondentsCount() {
-		return depondentsCount;
+	public Integer getDependentsCount() {
+		return dependentsCount;
 	}
 
-	public void setDepondentsCount(Integer depondentsCount) {
-		this.depondentsCount = depondentsCount;
+	public void setDependentsCount(Integer dependentsCount) {
+		this.dependentsCount = dependentsCount;
 	}
 
 	@Override
@@ -183,11 +183,9 @@ public class Employee {
 		return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", hireDate="
 				+ hireDate + ", mailAddress=" + mailAddress + ", zipCode=" + zipCode + ", address=" + address
 				+ ", telephone=" + telephone + ", salary=" + salary + ", characteristics=" + characteristics
-				+ ", depondentsCount=" + depondentsCount + "]";
+				+ ", dependentsCount=" + dependentsCount + "]";
 	}
-	
-	
-	
+
 	
 	
 	

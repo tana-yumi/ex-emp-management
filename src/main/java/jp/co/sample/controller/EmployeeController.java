@@ -36,16 +36,22 @@ public class EmployeeController {
 		return "employee/list";
 	}
 
+	/*
+	 * UpdateEmployeeFormメソッドインスタンス化を返す
+	 */
 	@ModelAttribute
 	public UpdateEmployeeForm setUpUpdateEmployeeForm() {
 		return new UpdateEmployeeForm();
 	}
-	
+
+	/*	
+	 * employeeServiceのshowDetailメソッドを呼ぶ。 従業員詳細画面に遷移する
+	 */
 	@RequestMapping("/showDetail")
 	public String showDetail(String id, Model model) {
 		Employee employee = employeeService.showDetail(Integer.parseInt(id));
 		model.addAttribute("employee", employee);
-		
+
 		return "employee/detail";
 	}
 

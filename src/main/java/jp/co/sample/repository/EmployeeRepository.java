@@ -37,7 +37,7 @@ public class EmployeeRepository {
 		employee.setTelephone(rs.getString("telephone"));
 		employee.setSalary(rs.getInt("salary"));
 		employee.setCharacteristics(rs.getString("characteristics"));
-		employee.setDepondentsCount(rs.getInt("dependents_count"));
+		employee.setDependentsCount(rs.getInt("dependents_count"));
 
 		return employee;
 	};
@@ -62,7 +62,7 @@ public class EmployeeRepository {
 	 * @return 主キーに該当する従業員情報
 	 */
 	public Employee load(Integer id) {
-		String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, telephone,salary,characteristics,dependents_count FROM employees WEHER id = :id";
+		String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, telephone,salary,characteristics,dependents_count FROM employees WHERE id = :id";
 
 		SqlParameterSource param = new MapSqlParameterSource("id", id);
 
@@ -77,7 +77,7 @@ public class EmployeeRepository {
 	 * @param employee 変更したい従業員
 	 */
 	public void update(Employee employee) {
-		String sql = "UPDATE employees SET id=:id, name=:name, image=:image, gender=:gender, hire_date=:hireDate, mail_address=:mailAddress, zip_code=:zipCode, address=:address, telephone=:telephone,salary=:salary,characteristics=:characteristics,dependents_count=:depondentsCount WHERE id=:id";
+		String sql = "UPDATE employees SET id=:id, name=:name, image=:image, gender=:gender, hire_date=:hireDate, mail_address=:mailAddress, zip_code=:zipCode, address=:address, telephone=:telephone,salary=:salary,characteristics=:characteristics,dependents_count=:dependentsCount WHERE id=:id";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 		template.update(sql, param);
 	}
