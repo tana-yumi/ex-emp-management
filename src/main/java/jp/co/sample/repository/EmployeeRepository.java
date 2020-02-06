@@ -46,7 +46,7 @@ public class EmployeeRepository {
 	
 	/**
 	 * 従業員一覧情報を入社日順で取得する.
-	 * @return
+	 * @return　従業員情報全件
 	 */
 	public List<Employee> findAll() {
 		String sql = "SELECT id, name, image, gender, hireDate, mailAddress, zipCode, address, telephone,salary,characteristics,depondentsCount "
@@ -58,8 +58,8 @@ public class EmployeeRepository {
 
 	/**
 	 * 主キーから従業員情報を取得する.
-	 * @param id
-	 * @return
+	 * @param id　主キー
+	 * @return　主キーに該当する従業員情報
 	 */
 	public Employee load(Integer id) {
 		String sql = "SELECT id, name, image, gender, hireDate, mailAddress, zipCode, address, telephone,salary,characteristics,depondentsCount FROM employees WEHER id = :id;";
@@ -73,7 +73,7 @@ public class EmployeeRepository {
 
 	/**
 	 * 従業員情報を変更する.
-	 * @param employee
+	 * @param employee　変更したい従業員
 	 */
 	public void update(Employee employee) {
 		String sql = "UPDATE employees SET id=:id, name=:name, image=:image, gender=:gender, hireDate=:hireDate, mailAddress=:mailAddress, zipCode=:zipCode, address=:address, telephone=:telephone,salary=:salary,characteristics=:characteristics,depondentsCount=:depondentsCount WHERE id=:id;";

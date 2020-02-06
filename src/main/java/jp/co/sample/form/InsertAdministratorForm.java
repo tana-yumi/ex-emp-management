@@ -7,8 +7,13 @@ package jp.co.sample.form;
  */
 public class InsertAdministratorForm {
 
+	/** name:名前*/
 	private String name;
+	
+	/**mailaddressメールアドレス*/
 	private String mailAddress;
+	
+	/**pssword パスワード*/
 	private String password;
 	
 	public String getName() {

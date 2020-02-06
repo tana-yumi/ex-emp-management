@@ -6,8 +6,10 @@ package jp.co.sample.form;
  *
  */
 public class LoginForm {
-
+	/**mailadressメールアドレス*/
 	private String mailAddress;
+	
+	/**passwordパスワード*/
 	private String password;
 	
 	public String getMailAddress() {

@@ -29,7 +29,7 @@ public class AdministratorController {
 	
    /**
     * InsertAdministratorFormをインスタンス化してreturnする.
-    * @return
+    * @return　管理者登録時に使用するフォームに遷移する
     */
 	@ModelAttribute
 	public InsertAdministratorForm setUpInsertAdministratorForm() {
@@ -46,6 +46,11 @@ public class AdministratorController {
 		return "administrator/insert";
 	}
 	
+	/**
+	 * 管理者情報を登録する。
+	 * @param form　管理者登録時に使用するフォーム
+	 * @return　管理者情報登録画面にリダイレクト
+	 */
 	@RequestMapping("/insert")
 	public String insert(InsertAdministratorForm form) {
 		Administrator administrator = new Administrator();
@@ -57,7 +62,7 @@ public class AdministratorController {
 	
 	/**
 	 * ログインする際、リクエストパラメーターが格納されるLoginFormオブジェクトがリクエストスコープに自動的に格納されるメソッド
-	 * @return　LoginForm
+	 * @return　LoginForm　リクエストパラメーターが格納されるLoginFormオブジェクトを生成
 	 */
 	@ModelAttribute
 	public LoginForm setUpLoginForm() {
@@ -66,16 +71,25 @@ public class AdministratorController {
 	}
 	/**
 	 * administrator/login.htmlにフォワード
-	 * @return
+	 * @return　ログイン画面に遷移
 	 */
 	@RequestMapping("/")
 	public String toLogin() {
 		return "administrator/login";
 	}
 	
+	/**
+	 * sessionスコープの定義.
+	 */
 	@Autowired
 	private HttpSession session;
 		
+	/**
+	 * ログイン失敗の際と成功の際のメソッド.
+	 * @param form　ログイン時に使用するフォームの引数を使用
+	 * @param model　エラーメッセージを格納しているリクエストスコープ
+	 * @return　ログイン失敗時はエラーメッセージ表示（画面はログイン画面のまま）。成功時は従業員情報一覧ページにフォワード
+	 */
 	@RequestMapping("/login")
 	public String login(LoginForm form, Model model) {
 		Administrator administrator = administratorService.login(form.getMailAddress(), form.getPassword());
