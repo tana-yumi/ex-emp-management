@@ -2,6 +2,7 @@ package jp.co.sample.controller;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,7 +45,7 @@ public class EmployeeController {
 		return new UpdateEmployeeForm();
 	}
 
-	/*	
+	/*
 	 * employeeServiceのshowDetailメソッドを呼ぶ。 従業員詳細画面に遷移する
 	 */
 	@RequestMapping("/showDetail")
@@ -55,4 +56,19 @@ public class EmployeeController {
 		return "employee/detail";
 	}
 
+	/*
+	 * 従業員詳細（扶養人数）を更新するメソッド
+	 */
+	@RequestMapping("/update")
+	public String update(UpdateEmployeeForm form) {
+		Employee employee = new Employee();
+		BeanUtils.copyProperties(form, employee);
+		employee.setId(form.getIntId());
+		employee.setDependentsCount(form.getIntDependentsCount());
+		System.out.println(employee);
+		employeeService.update(employee);
+		return "redirect:/employee/showList";
+	}
+
+	
 }

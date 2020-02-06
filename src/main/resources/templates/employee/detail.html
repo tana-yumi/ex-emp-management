@@ -40,7 +40,7 @@
 					<p class="navbar-text navbar-right">
 						<span th:text="${session.administratorName + 'さん'}">山田さん</span>こんにちは！
 						&nbsp;&nbsp;&nbsp;
-						<a href="../administrator/login.html" class="navbar-link">ログアウト</a>
+						<a href="../administrator/login.html" class="navbar-link" th:href="@{/logout}">ログアウト</a>
 					</p>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -65,7 +65,7 @@
 <!-- ここから上を編集する必要はありません -->
 
 <!-- ここにモックのform要素を貼り付けます -->
-<form method="post" action="list.html">
+<form method="post" action="list.html" th:action="@{/employee/update}" th:object="${updateEmployeeForm}">
 						<fieldset>
 							<legend>従業員情報</legend>
 							<table class="table table-striped">

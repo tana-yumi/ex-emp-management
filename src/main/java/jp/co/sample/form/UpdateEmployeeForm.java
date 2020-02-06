@@ -13,6 +13,10 @@ public class UpdateEmployeeForm {
 	/** d扶養家族数*/
 	private String dependentsCount;
 	
+	public Integer getIntId() {
+		return Integer.parseInt(id);
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -21,6 +25,9 @@ public class UpdateEmployeeForm {
 	}
 	public String getDependentsCount() {
 		return dependentsCount;
+	}
+	public Integer getIntDependentsCount() {
+		return Integer.parseInt(dependentsCount);
 	}
 	public void setDependentsCount(String dependentsCount) {
 		this.dependentsCount = dependentsCount;

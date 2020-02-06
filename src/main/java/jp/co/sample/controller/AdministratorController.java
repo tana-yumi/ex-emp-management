@@ -21,7 +21,7 @@ import jp.co.sample.service.AdministratorService;
  *
  */
 @Controller
-@RequestMapping
+@RequestMapping("/")
 public class AdministratorController {
 
 	@Autowired
@@ -111,4 +111,14 @@ public class AdministratorController {
 		return "forward:/employee/showList";
 
 	}
+
+	/*
+	 * ログアウトをするメソッド
+	 */
+	@RequestMapping("/logout")
+	public String logout() {
+		session.invalidate();
+		return "redirect:/";
+	}
+
 }
